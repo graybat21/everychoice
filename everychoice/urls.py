@@ -43,7 +43,7 @@ schema_view_v1 = get_schema_view(
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^v1/', include('selection.urls')),
+    url(r'^selection/', include('selection.urls')),
 
     # Auto DRF API docs
     url(r'^swagger(?P<format>\.json|\.yaml)/v1$', schema_view_v1.without_ui(cache_timeout=0), name='schema-json'),

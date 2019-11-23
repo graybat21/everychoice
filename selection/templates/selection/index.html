@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if latest_selection_list %}
+        <ul>
+        {% for selection in latest_selection_list %}
+            <li><a href="/selection/{{ selection.id }}/">{{ selection.subject }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No selections are available.</p>
+    {% endif %}
+
+</body>
+</html>
+
+

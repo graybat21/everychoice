@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Selection, Choice, Participation
+
+admin.site.register(Selection)
+admin.site.register(Choice)
+admin.site.register(Participation)

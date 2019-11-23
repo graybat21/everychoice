@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 
 class Selection(models.Model):
@@ -11,6 +14,9 @@ class Selection(models.Model):
     def __str__(self):
         return self.subject
 
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
 
 class Choice(models.Model):
     selection = models.ForeignKey(Selection, on_delete=models.CASCADE)
@@ -21,6 +27,10 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+
 class Participation(models.Model):
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     user_id = models.CharField(max_length=200)
@@ -28,3 +38,6 @@ class Participation(models.Model):
 
     def __str__(self):
         return self.user_id
+
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
