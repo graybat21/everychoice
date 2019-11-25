@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
 </head>
 <body>
 
     {% if latest_selection_list %}
         <ul>
         {% for selection in latest_selection_list %}
-            <li>{{ selection.pk }}<a href="/selection/{{ selection.id }}/">{{ selection.subject }}</a></li>
+<!--            {{ selection.pk }}-->
+            <li><a href="/selection/{{ selection.id }}/">{{ selection.subject }}</a></li>
         {% endfor %}
         </ul>
     {% else %}

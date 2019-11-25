@@ -1,9 +1,7 @@
-from django.shortcuts import render
-
 # Create your views here.
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Selection, Participation, Choice
 
@@ -20,10 +18,10 @@ def index(request):
 
 def detail(request, selection_id):
     # /selection/{selection_id} GET -> 특정 selection 정보 보여주기
-    response = "You're looking at selection_id %s." % selection_id
-    choice_list = Choice.objects.filter(selection_id=selection_id).order_by('-pub_date')
+    selection = get_object_or_404(Selection, pk=selection_id)
+    # choice_list = Choice.objects.filter(selection_id=selection_id).order_by('-pub_date')
     context = {
-        'choice_list': choice_list,
+        'selection': selection,
     }
 
     return render(request, 'selection/detail.html', context)
