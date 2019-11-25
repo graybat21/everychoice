@@ -9,7 +9,7 @@
     {% if latest_selection_list %}
         <ul>
         {% for selection in latest_selection_list %}
-            <li><a href="/selection/{{ selection.id }}/">{{ selection.subject }}</a></li>
+            <li>{{ selection.pk }}<a href="/selection/{{ selection.id }}/">{{ selection.subject }}</a></li>
         {% endfor %}
         </ul>
     {% else %}

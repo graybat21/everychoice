@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if choice_list %}
+        <ul>
+        {% for choice in choice_list %}
+            <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No choices are available.</p>
+    {% endif %}
+
+</body>
+</html>
+
+
